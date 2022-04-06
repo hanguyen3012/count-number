@@ -27,11 +27,11 @@ export default {
       }
     },
     plusNum() {
-      this.counter = this.counter + this.value;
+      this.counter = parseInt(this.counter) + parseInt(this.value);
       return this.counter;
     },
     minusNum() {
-      this.counter = this.counter - this.value;
+      this.counter = parseInt(this.counter) - parseInt(this.value);
       return this.counter;
     },
   },
