@@ -1,12 +1,14 @@
 <template>
   <div>
-    <div>Enter your number: <input type ="number" v-model= "valueInput"/></div>
+    <div>
+      Enter your number: <input v-model="value" @focusout="handleOutFocus()" />
+    </div>
     <div class="hello">
-      <h1>{{ counter + valueInput }}</h1>
+      <h1>{{ counter }}</h1>
     </div>
     <div>
-      <button class = "btn1" @click="plusNum">+</button>
-      <button class = "btn2" @click="minusNum">-</button>
+      <button class="btn1" @click="plusNum">+</button>
+      <button class="btn2" @click="minusNum">-</button>
     </div>
   </div>
 </template>
@@ -14,18 +16,23 @@
 <script>
 export default {
   name: "HelloWorld",
-  data() {
-    return {
-      valueInput: 1,
-      counter: 0,
-    };
-  },
+  data: () => ({
+    counter: 0,
+    value: 1,
+  }),
   methods: {
+    handleOutFocus() {
+      if (!this.value) {
+        this.value = 1;
+      }
+    },
     plusNum() {
-      this.counter++;
+      this.counter = this.counter + this.value;
+      return this.counter;
     },
     minusNum() {
-       this.counter--;
+      this.counter = this.counter - this.value;
+      return this.counter;
     },
   },
 };
@@ -33,7 +40,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.btn2{
+.btn2 {
   margin-left: 50px;
 }
 </style>
