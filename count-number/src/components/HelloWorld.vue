@@ -1,11 +1,12 @@
 <template>
   <div>
+    <div>Enter your number: <input type ="number" v-model= "valueInput"/></div>
     <div class="hello">
-      <h1>{{ counter }}</h1>
+      <h1>{{ counter + valueInput }}</h1>
     </div>
     <div>
-      <button @click="plusNum">+</button>&nbsp;&nbsp;
-      <button @click="minusNum">-</button>
+      <button class = "btn1" @click="plusNum">+</button>
+      <button class = "btn2" @click="minusNum">-</button>
     </div>
   </div>
 </template>
@@ -15,6 +16,7 @@ export default {
   name: "HelloWorld",
   data() {
     return {
+      valueInput: 1,
       counter: 0,
     };
   },
@@ -31,4 +33,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.btn2{
+  margin-left: 50px;
+}
 </style>
