@@ -4,8 +4,8 @@
       <h1>{{counter}}</h1>
     </div>
     <div>
-      <button @click="counter +=1">+</button>&nbsp;&nbsp;
-      <button @click="counter -=1">-</button>
+      <button v-on:click="counter +=1">+</button>&nbsp;&nbsp;
+      <button v-on:click="counter -=1">-</button>
     </div>
   </div>
 </template>
