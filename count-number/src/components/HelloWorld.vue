@@ -1,11 +1,11 @@
 <template>
   <div>
     <div class="hello">
-      <h1>{{counter}}</h1>
+      <h1>{{ counter }}</h1>
     </div>
     <div>
-      <button v-on:click="counter +=1">+</button>&nbsp;&nbsp;
-      <button v-on:click="counter -=1">-</button>
+      <button @click="plusNum">+</button>&nbsp;&nbsp;
+      <button @click="minusNum">-</button>
     </div>
   </div>
 </template>
@@ -13,11 +13,19 @@
 <script>
 export default {
   name: "HelloWorld",
-  data (){
+  data() {
     return {
-      counter : 0,
-    }
-  }
+      counter: 0,
+    };
+  },
+  methods: {
+    plusNum() {
+      this.counter++;
+    },
+    minusNum() {
+       this.counter--;
+    },
+  },
 };
 </script>
 
